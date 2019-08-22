@@ -3,7 +3,7 @@ public class Connection implements Comparable<Connection>
     private String line;
     private String station;
 
-    public Connection(String line,String station)
+    Connection(String line, String station)
     {
         this.line = line; this.station = station;
     }
@@ -24,7 +24,7 @@ public class Connection implements Comparable<Connection>
         this.station = station;
     }
 
-    @Override
+    @Override // чтобы добавить объект в трисэт сделал их сравнимыми
     public int compareTo(Connection o) {
         return line.compareTo(o.line);
     }
