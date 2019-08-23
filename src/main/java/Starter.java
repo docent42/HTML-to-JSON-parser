@@ -76,9 +76,15 @@ public class Starter
     }
     private static void stationFormer(String number, String station)
     {
-        if (station_index.containsKey(number)) station_index.get(number).add(station);
+        if (station_index.containsKey(number))
+        {
+            boolean flag = station_index.get(number).stream().noneMatch(existStation ->existStation.equals(station));
+            if (flag) station_index.get(number).add(station);
+        }
         else
+        {
             station_index.put(number,new ArrayList<>());station_index.get(number).add(station);
+        }
     }
 
     private static void lineFormer(String number, String name, String color)
